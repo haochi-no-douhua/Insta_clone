@@ -1,0 +1,15 @@
+<div class="form_template">
+  <h1>以下の内容でよろしいですか？</h1>
+  <%= form_with(model: @blog, local: true) do |form| %>
+    <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
+    <%= form.hidden_field :title %>
+    <%= form.hidden_field :content %>
+    <%= form.hidden_field :image_cache %>
+    <h1>title:<%= @blog.title %></h1>
+    <p>content:<%= @blog.content %></p>
+
+    <%= form.submit %>
+
+    <%= form.submit 'BACK', name: 'back' , class:"btn btn-outline-info" %>
+  <% end %>
+</div>

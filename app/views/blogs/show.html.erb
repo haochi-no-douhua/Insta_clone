@@ -1,0 +1,37 @@
+<div class="split">
+  <div class="split-item split-left">
+    <div class="split-left__inner">
+      <div class="content_image">
+        <%= image_tag @blog.image.url %>
+      </div>
+      <div class="edit_and_back">
+        <% if current_user == @blog.user %>
+          <%= link_to image_tag("edit.png"), edit_blog_path(@blog) %>
+          <%= link_to image_tag("delete_on.png"), blog_path(@blog), method: :delete, data: { confirm: '本当に消しますか？' } %>
+        <% end %>
+        <% unless @blog.user_id == current_user.id %>
+          <% if @favorite.present? %>
+            <%= link_to '♥', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+          <% else %>
+            <%= link_to '♡', favorites_path(blog_id: @blog.id), method: :post, class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="split-item split-right">
+    <div class="split-right__inner">
+      <div class="title_and_content">
+        <h1><strong><%= @blog.title %></strong></h1>
+        <div class="uploaded_user">
+          uploaded by
+          <%= link_to image_tag(@blog.user.image.url),user_path(@blog.user_id)  %>
+        </div>
+        <p>
+          <%= @blog.content %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

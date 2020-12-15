@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Insta_Clone</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <div id="wrapper">
+    <div class="left_body">
+      <body>
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+        <%= yield %>
+      </body>
+    </div>
+    <div class="right_body">
+      <div class="menu_bar">
+        <% if logged_in? %>
+          <ul>
+            <div id="user_image">
+              <li><%= link_to user_path(current_user.id) do %>
+                    <%= image_tag current_user.image.url %>
+                  <% end %>
+              </li>
+              <li><%= current_user.name %></li>
+            </div>
+            <li><%= link_to image_tag("home.png"), blogs_path %></li>
+            <li>HOME</li>
+            <li><%= link_to image_tag("blog_new.png"), new_blog_path %></li>
+            <li>POST</li>
+            <li><%= link_to image_tag("favorite.png"), favorites_user_path(current_user.id) %></li>
+            <li>FAVORITE</li>
+            <li><%= link_to image_tag("new_contact.png"), new_contact_path %></li>
+            <li>CONTACT</li>
+            <li><%= link_to image_tag("log_out.png"), session_path(current_user.id), method: :delete %></li>
+            <li>LOG OUT</li>
+
+        <% else %>
+          <ul>
+            <li><%= link_to image_tag("home.png"), blogs_path %></li>
+            <li>HOME</li>
+            <li><%= link_to image_tag("sign_in.png"), new_user_path %></li>
+            <li>SIGN IN</li>
+            <li><%= link_to image_tag("log_in.png"), new_session_path %></li>
+            <li>LOG IN</li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</html>

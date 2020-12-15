@@ -1,0 +1,13 @@
+<div class="form_template">
+  <h1><%= @user.name %>のページ</h1>
+    <div class="user_profile_image">
+      <%= image_tag @user.image.url %>
+    </div>
+
+    <p>email:<%= @user.email %></p>
+    <p>profile:<%= @user.profile %></p>
+  <% if current_user == @user %>
+    <%= link_to image_tag("edit.png"), edit_user_path %>
+  <% end %>
+  <%= link_to 'Back', blogs_path, class: "btn btn-outline-info" %>
+</div>

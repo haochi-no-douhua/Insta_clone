@@ -1,0 +1,120 @@
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form_template {
+  text-align: center;
+}
+.left_body {
+  width: 90%;
+}
+.right_body{
+  width: 10%;
+}
+.wrap {
+  column-count: 3;
+  width: 100%;
+}
+.item {
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+.uploaded_image {
+}
+.uploaded_image img {
+  width: 100%;
+  border-radius: 30px;
+}
+.uploaded_image img:hover {
+  transform: scale(.9, .9);
+}
+.split {
+  display: table;
+  width: 100%;
+}
+.split-item {
+  display: table-cell;
+  padding: 30px;
+  width: 50%;
+}
+
+.split-left {
+  position: relative;
+  height: auto;
+}
+.split-left__inner {
+  height: 100%;
+  position: fixed;
+  width: 50%;
+  text-align: center;
+}
+.content_image img {
+  width:50%;
+  height: auto;
+  margin-top: 30px;
+  border-radius: 100px;
+}
+.split-right__inner {
+  // height: 500px;
+}
+.title_and_content {
+  width: 90%;
+  padding: 50px;
+}
+.title_and_content h1 {
+  text-align: center;
+  font-family: 'KFhimaji';
+}
+.title_and_content p {
+  text-align: center;
+  font-family: 'KFhimaji';
+}
+.edit_and_back {
+  text-align: center;
+}
+.edit_and_back img {
+  height: 30px;
+  width: auto;
+}
+.menu_bar {
+  position: fixed;
+}
+#user_image {
+  padding-bottom: 30px;
+}
+#user_image img {
+  height: 70px;
+}
+.menu_bar li img {
+  height: 25px;
+}
+.menu_bar li {
+  text-align: center;
+  padding-bottom: 3px;
+}
+.menu_bar ul {
+  list-style-type: none;
+}
+a:hover {
+  color: blue;
+}
+#user_image img {
+  border-radius: 50px;
+}
+.uploaded_user {
+  font-size: 15px;
+  text-align: right;
+}
+.uploaded_user img {
+  width: 50px;
+  border-radius: 50px;
+}
+.fav_image img {
+  border-radius: 50px;
+  padding: 10px;
+}
+.user_profile_image img {
+  border-radius: 50px;
+}
